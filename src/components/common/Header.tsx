@@ -77,10 +77,10 @@ export const Header: React.FC = () => {
         <span>LAGOS ATELIER &amp; NATIONWIDE CONCIERGE</span>
       </div>
 
-      {/* Main Sticky Header */}
+      {/* Main Fixed Header */}
       <header
         id="main-header"
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-300 ${
           isScrolled
             ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm border-b border-[#E8E2DA] py-3.5'
             : 'bg-[#FAF8F5] border-b border-[#ECE6DC] py-5'
