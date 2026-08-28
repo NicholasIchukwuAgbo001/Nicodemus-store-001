@@ -1,0 +1,6 @@
+{
+  "name": "NICODEMUS 001",
+  "description": "Modern Women's Fashion & Lifestyle E-Commerce Store featuring luxury apparel, shoes, handbags, jewelry, and contemporary lifestyle collections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
