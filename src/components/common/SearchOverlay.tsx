@@ -38,15 +38,15 @@ export const SearchOverlay: React.FC = () => {
   const filteredProducts = searchTerm.trim() === ''
     ? []
     : products.filter((item) => {
-        const query = searchTerm.toLowerCase();
-        return (
-          item.name.toLowerCase().includes(query) ||
-          item.category.toLowerCase().includes(query) ||
-          item.subCategory.toLowerCase().includes(query) ||
-          item.description.toLowerCase().includes(query) ||
-          item.tags.some((t) => t.toLowerCase().includes(query))
-        );
-      });
+      const query = searchTerm.toLowerCase();
+      return (
+        item.name.toLowerCase().includes(query) ||
+        item.category.toLowerCase().includes(query) ||
+        item.subCategory.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query) ||
+        item.tags.some((t) => t.toLowerCase().includes(query))
+      );
+    });
 
   const handleProductSelect = (productId: string) => {
     setIsSearchOpen(false);
@@ -63,8 +63,8 @@ export const SearchOverlay: React.FC = () => {
 
   return (
     <AnimatePresence>
-      <div 
-        id="search-overlay-container" 
+      <div
+        id="search-overlay-container"
         className="fixed inset-0 z-50 flex flex-col bg-[#FAF8F5]/98 backdrop-blur-md overflow-y-auto"
       >
         {/* Search Header */}

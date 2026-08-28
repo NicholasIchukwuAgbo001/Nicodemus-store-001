@@ -16,7 +16,7 @@ export const TrendingNow: React.FC = () => {
   return (
     <section id="trending-now-section" className="py-20 lg:py-28 bg-[#F4EFEA] border-t border-[#E8E2DA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Editorial Split Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 border-b border-[#D8D0C4] pb-8">
           <div className="lg:col-span-8">
@@ -46,9 +46,9 @@ export const TrendingNow: React.FC = () => {
 
         {/* Featured Editorial Spotlight + Horizontal Showcase */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
+
           {/* Spotlight Large Editorial Feature Box */}
-          <div 
+          <div
             onClick={() => navigateTo('product-detail', 'prod-tailored-blazer')}
             className="lg:col-span-5 relative group overflow-hidden rounded-sm cursor-pointer bg-[#181716] min-h-[460px] flex flex-col justify-end p-8 text-[#FAF8F5] shadow-lg"
           >
@@ -79,7 +79,7 @@ export const TrendingNow: React.FC = () => {
           </div>
 
           {/* 4 Supporting Trending Grid */}
-          <div className="lg:col-span-7 grid grid-cols-2 gap-4 sm:gap-6">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {trendingProducts.slice(1, 5).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

@@ -22,7 +22,7 @@ export const NewArrivals: React.FC = () => {
   return (
     <section id="new-arrivals-section" className="py-20 bg-[#FAF8F5] border-t border-[#E8E2DA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
           <div>
@@ -44,11 +44,10 @@ export const NewArrivals: React.FC = () => {
               <button
                 key={tab}
                 onClick={() => setSelectedSubTab(tab)}
-                className={`text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full transition-all ${
-                  selectedSubTab === tab
+                className={`text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full transition-all ${selectedSubTab === tab
                     ? 'bg-[#181716] text-[#FAF8F5] font-semibold'
                     : 'bg-[#F0EAE1] text-[#4A453F] hover:bg-[#E4DCCE]'
-                }`}
+                  }`}
               >
                 {tab}
               </button>
@@ -57,9 +56,9 @@ export const NewArrivals: React.FC = () => {
         </div>
 
         {/* Responsive Product Grid: Desktop 4 / Tablet 3 / Mobile 2 */}
-        <div 
+        <div
           id="new-arrivals-grid"
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
         >
           {displayedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
