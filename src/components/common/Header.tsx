@@ -168,7 +168,7 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Right Action Icons */}
-          <div className="flex items-center space-x-4 sm:space-x-5">
+          <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-5">
             {/* Desktop Search Icon */}
             <button
               id="desktop-search-btn"
@@ -179,8 +179,8 @@ export const Header: React.FC = () => {
               <Search className="w-5 h-5" />
             </button>
 
-            {/* Account / User Menu */}
-            <div className="relative">
+            {/* Account / User Menu - Hidden on smallest screens */}
+            <div className="relative hidden sm:block">
               <button
                 id="account-btn"
                 onClick={() => {
@@ -256,11 +256,11 @@ export const Header: React.FC = () => {
               )}
             </div>
 
-            {/* Wishlist Icon */}
+            {/* Wishlist Icon - Hidden on mobile, shown on sm and up */}
             <button
               id="wishlist-header-btn"
               onClick={() => navigateTo('wishlist')}
-              className="p-1.5 text-[#181716] hover:text-[#C29E74] transition-colors relative focus:outline-none"
+              className="hidden sm:flex p-1.5 text-[#181716] hover:text-[#C29E74] transition-colors relative focus:outline-none"
               aria-label="Wishlist"
             >
               <Heart className="w-5 h-5" />
@@ -397,10 +397,17 @@ export const Header: React.FC = () => {
                       navigateTo('wishlist');
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full flex items-center justify-between py-2.5 px-2 text-xs tracking-wider uppercase text-[#4A453F] hover:bg-[#F2ECE3] rounded-lg"
+                    className="w-full flex items-center justify-between py-2.5 px-2 text-xs tracking-wider uppercase text-[#4A453F] hover:bg-[#F2ECE3] rounded-lg relative"
                   >
-                    <span>Wishlist ({wishlistCount})</span>
-                    <Heart className="w-3.5 h-3.5 text-[#C29E74]" />
+                    <span className="flex items-center gap-2">
+                      <Heart className="w-3.5 h-3.5 text-[#C29E74]" />
+                      Wishlist
+                    </span>
+                    {wishlistCount > 0 && (
+                      <span className="bg-[#C29E74] text-[#FAF8F5] text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        {wishlistCount}
+                      </span>
+                    )}
                   </button>
 
                   <button
