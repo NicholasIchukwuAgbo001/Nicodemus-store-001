@@ -68,7 +68,7 @@ export const WelcomeModal: React.FC = () => {
                     NICODEMUS<span className="text-[#C29E74] ml-1.5 font-normal tracking-[0.15em]">001</span>
                   </h2>
                   <p className="text-[8px] uppercase tracking-[0.35em] text-[#7D7771] font-medium mt-1">
-                    Women's Atelier & Lifestyle
+                    Women, Men and children Atelier & Lifestyle
                   </p>
                 </div>
 
