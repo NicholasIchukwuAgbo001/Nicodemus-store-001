@@ -42,8 +42,8 @@ const MainAppContent: React.FC = () => {
       {/* Universal Header */}
       <Header />
 
-      {/* Main Dynamic View Controller */}
-      <main className="flex-1">
+      {/* Main Dynamic View Controller - Add padding to account for fixed header */}
+      <main className="flex-1 pt-[120px] sm:pt-[115px]">
         {activeView === 'home' && (
           <div id="home-view">
             <HeroSection />

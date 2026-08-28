@@ -6,11 +6,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { formatPrice } from '../../utils/currency';
 
 export const ShopCatalog: React.FC = () => {
-  const { 
-    products, 
-    activeCategoryFilter, 
-    setActiveCategoryFilter, 
-    selectedSubCategory, 
+  const {
+    products,
+    activeCategoryFilter,
+    setActiveCategoryFilter,
+    selectedSubCategory,
     setSelectedSubCategory,
     priceRange,
     setPriceRange,
@@ -40,17 +40,17 @@ export const ShopCatalog: React.FC = () => {
   ];
 
   const allSizes = [
-    'UK 6 (XS)', 
-    'UK 8 (S)', 
-    'UK 10 (M)', 
-    'UK 12 (L)', 
-    'UK 14 (XL)', 
-    'EU 36 / UK 3.5', 
-    'EU 37 / UK 4.0', 
-    'EU 38 / UK 5.0', 
-    'EU 39 / UK 6.0', 
-    'EU 40 / UK 6.5', 
-    'EU 41 / UK 7.5', 
+    'UK 6 (XS)',
+    'UK 8 (S)',
+    'UK 10 (M)',
+    'UK 12 (L)',
+    'UK 14 (XL)',
+    'EU 36 / UK 3.5',
+    'EU 37 / UK 4.0',
+    'EU 38 / UK 5.0',
+    'EU 39 / UK 6.0',
+    'EU 40 / UK 6.5',
+    'EU 41 / UK 7.5',
     'One Size'
   ];
 
@@ -91,7 +91,7 @@ export const ShopCatalog: React.FC = () => {
 
     // Sizes
     if (selectedSizes.length > 0) {
-      list = list.filter((p) => 
+      list = list.filter((p) =>
         p.sizes.some((s) => selectedSizes.includes(s.size) && s.inStock)
       );
     }
@@ -124,7 +124,7 @@ export const ShopCatalog: React.FC = () => {
     return list;
   }, [products, activeCategoryFilter, selectedSubCategory, priceRange, selectedSizes, selectedColors, inStockOnly, sortBy]);
 
-  const hasActiveFilters = 
+  const hasActiveFilters =
     activeCategoryFilter !== 'All' ||
     selectedSubCategory !== null ||
     selectedSizes.length > 0 ||
@@ -151,7 +151,7 @@ export const ShopCatalog: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        
+
         {/* Category Horizontal Quick-Tabs Bar */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 no-scrollbar border-b border-[#E8E2DA]">
           {categories.map((cat) => (
@@ -161,11 +161,10 @@ export const ShopCatalog: React.FC = () => {
                 setActiveCategoryFilter(cat);
                 setSelectedSubCategory(null);
               }}
-              className={`text-xs uppercase tracking-widest px-4 py-2 rounded-full whitespace-nowrap transition-all ${
-                activeCategoryFilter === cat
+              className={`text-xs uppercase tracking-widest px-4 py-2 rounded-full whitespace-nowrap transition-all ${activeCategoryFilter === cat
                   ? 'bg-[#181716] text-[#FAF8F5] font-semibold'
                   : 'bg-[#EFE9DF] text-[#4A453F] hover:bg-[#E4DCCE]'
-              }`}
+                }`}
             >
               {cat}
             </button>
@@ -254,10 +253,10 @@ export const ShopCatalog: React.FC = () => {
 
         {/* Main Content Layout: Sidebar + Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8">
-          
+
           {/* Desktop Left Sidebar Filters */}
           <aside className="hidden lg:block lg:col-span-3 space-y-8 pr-4 border-r border-[#E8E2DA]">
-            
+
             {/* Departments */}
             <div>
               <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#181716] mb-4">
@@ -268,11 +267,10 @@ export const ShopCatalog: React.FC = () => {
                   <button
                     key={c}
                     onClick={() => setActiveCategoryFilter(c)}
-                    className={`w-full text-left py-1 transition-colors flex justify-between ${
-                      activeCategoryFilter === c
+                    className={`w-full text-left py-1 transition-colors flex justify-between ${activeCategoryFilter === c
                         ? 'text-[#181716] font-bold'
                         : 'text-[#5D5750] hover:text-[#181716]'
-                    }`}
+                      }`}
                   >
                     <span>{c}</span>
                     {activeCategoryFilter === c && <span className="text-[#C29E74]">●</span>}
@@ -314,11 +312,10 @@ export const ShopCatalog: React.FC = () => {
                     <button
                       key={size}
                       onClick={() => toggleSizeFilter(size)}
-                      className={`px-3 py-1.5 text-xs font-medium rounded-sm border transition-all ${
-                        isSelected
+                      className={`px-3 py-1.5 text-xs font-medium rounded-sm border transition-all ${isSelected
                           ? 'bg-[#181716] text-[#FAF8F5] border-[#181716]'
                           : 'bg-[#FAF8F5] text-[#4A453F] border-[#D5CDBD] hover:border-[#181716]'
-                      }`}
+                        }`}
                     >
                       {size}
                     </button>
@@ -339,9 +336,8 @@ export const ShopCatalog: React.FC = () => {
                     <button
                       key={col.name}
                       onClick={() => toggleColorFilter(col.name)}
-                      className={`flex items-center gap-2 p-1.5 rounded-sm text-left transition-colors ${
-                        isSelected ? 'bg-[#E8E2DA] font-semibold text-[#181716]' : 'text-[#5D5750] hover:bg-[#F2ECE3]'
-                      }`}
+                      className={`flex items-center gap-2 p-1.5 rounded-sm text-left transition-colors ${isSelected ? 'bg-[#E8E2DA] font-semibold text-[#181716]' : 'text-[#5D5750] hover:bg-[#F2ECE3]'
+                        }`}
                     >
                       <span
                         className="w-3.5 h-3.5 rounded-full border border-[#D5CDBD] shrink-0"
@@ -385,9 +381,9 @@ export const ShopCatalog: React.FC = () => {
                 </button>
               </div>
             ) : (
-              <div 
+              <div
                 id="shop-product-grid"
-                className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-6"
               >
                 {filteredProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
@@ -435,11 +431,10 @@ export const ShopCatalog: React.FC = () => {
                         <button
                           key={c}
                           onClick={() => setActiveCategoryFilter(c)}
-                          className={`text-xs px-3 py-1.5 rounded-sm border ${
-                            activeCategoryFilter === c
+                          className={`text-xs px-3 py-1.5 rounded-sm border ${activeCategoryFilter === c
                               ? 'bg-[#181716] text-[#FAF8F5] border-[#181716]'
                               : 'bg-[#FAF8F5] border-[#D5CDBD] text-[#4A453F]'
-                          }`}
+                            }`}
                         >
                           {c}
                         </button>
@@ -455,11 +450,10 @@ export const ShopCatalog: React.FC = () => {
                         <button
                           key={size}
                           onClick={() => toggleSizeFilter(size)}
-                          className={`text-xs px-3 py-1.5 rounded-sm border ${
-                            selectedSizes.includes(size)
+                          className={`text-xs px-3 py-1.5 rounded-sm border ${selectedSizes.includes(size)
                               ? 'bg-[#181716] text-[#FAF8F5] border-[#181716]'
                               : 'bg-[#FAF8F5] border-[#D5CDBD] text-[#4A453F]'
-                          }`}
+                            }`}
                         >
                           {size}
                         </button>

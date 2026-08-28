@@ -70,19 +70,19 @@ export const Header: React.FC = () => {
       {/* Top Announcement Bar */}
       <div
         id="announcement-bar"
-        className="bg-[#181716] text-[#E8E2DA] text-[11px] font-medium tracking-[0.2em] py-2 px-4 text-center border-b border-[#2C2925] flex items-center justify-center gap-2"
+        className="fixed top-0 left-0 right-0 z-50 bg-[#181716] text-[#E8E2DA] text-[11px] font-medium tracking-[0.2em] py-2 px-4 text-center border-b border-[#2C2925] flex items-center justify-center gap-2"
       >
         <span className="hidden sm:inline">COMPLIMENTARY DELIVERY ACROSS NIGERIA ON ORDERS OVER ₦250,000</span>
         <span className="hidden sm:inline text-[#C29E74]">•</span>
         <span>LAGOS ATELIER &amp; NATIONWIDE CONCIERGE</span>
       </div>
 
-      {/* Main Sticky Header */}
+      {/* Main Fixed Header */}
       <header
         id="main-header"
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${isScrolled
-            ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm border-b border-[#E8E2DA] py-3.5'
-            : 'bg-[#FAF8F5] border-b border-[#ECE6DC] py-5'
+        className={`fixed top-[37px] left-0 right-0 z-40 w-full transition-all duration-300 ${isScrolled
+          ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm border-b border-[#E8E2DA] py-3.5'
+          : 'bg-[#FAF8F5] border-b border-[#ECE6DC] py-5'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -146,12 +146,12 @@ export const Header: React.FC = () => {
                   id={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                   onClick={() => handleNavClick(item.view, item.category)}
                   className={`text-xs uppercase tracking-[0.18em] font-medium transition-all duration-200 py-1 relative hover:text-[#C29E74] ${item.isHighlight
-                      ? isActive
-                        ? 'text-[#B8533E] font-bold'
-                        : 'text-[#B8533E] font-semibold'
-                      : isActive
-                        ? 'text-[#181716] font-bold'
-                        : 'text-[#4A453F]'
+                    ? isActive
+                      ? 'text-[#B8533E] font-bold'
+                      : 'text-[#B8533E] font-semibold'
+                    : isActive
+                      ? 'text-[#181716] font-bold'
+                      : 'text-[#4A453F]'
                     }`}
                 >
                   {item.label}
@@ -357,12 +357,12 @@ export const Header: React.FC = () => {
                         key={link.label}
                         onClick={() => handleNavClick(link.view, link.category)}
                         className={`w-full flex items-center justify-between py-3 px-3 rounded-md text-xs tracking-widest uppercase transition-colors ${link.isHighlight
-                            ? isActive
-                              ? 'text-[#B8533E] font-bold bg-[#FAF1EF] border-l-2 border-[#B8533E]'
-                              : 'text-[#B8533E] font-semibold bg-[#FAF1EF]'
-                            : isActive
-                              ? 'text-[#181716] font-bold bg-[#ECE6DC] border-l-2 border-[#181716]'
-                              : 'text-[#181716] hover:bg-[#F2ECE3] font-medium'
+                          ? isActive
+                            ? 'text-[#B8533E] font-bold bg-[#FAF1EF] border-l-2 border-[#B8533E]'
+                            : 'text-[#B8533E] font-semibold bg-[#FAF1EF]'
+                          : isActive
+                            ? 'text-[#181716] font-bold bg-[#ECE6DC] border-l-2 border-[#181716]'
+                            : 'text-[#181716] hover:bg-[#F2ECE3] font-medium'
                           }`}
                       >
                         <span>{link.label}</span>
