@@ -8,6 +8,7 @@ import { CartDrawer } from './components/common/CartDrawer';
 import { QuickViewModal } from './components/common/QuickViewModal';
 import { SizeGuideModal } from './components/common/SizeGuideModal';
 import { AuthModal } from './components/account/AuthModal';
+import { WelcomeModal } from './components/common/WelcomeModal';
 
 // Home Section Components
 import { HeroSection } from './components/home/HeroSection';
@@ -80,6 +81,7 @@ const MainAppContent: React.FC = () => {
       <QuickViewModal />
       <SizeGuideModal />
       <AuthModal />
+      <WelcomeModal />
       <ToastContainer />
     </div>
   );
