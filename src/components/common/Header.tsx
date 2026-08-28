@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useStore, AppView } from '../../context/StoreContext';
-import { 
-  Search, 
-  ShoppingBag, 
-  Heart, 
-  User as UserIcon, 
-  Menu, 
-  X, 
-  ChevronRight, 
+import {
+  Search,
+  ShoppingBag,
+  Heart,
+  User as UserIcon,
+  Menu,
+  X,
+  ChevronRight,
   Sparkles,
   ArrowRight,
   LogOut
@@ -15,14 +15,14 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 
 export const Header: React.FC = () => {
-  const { 
-    activeView, 
-    navigateTo, 
-    cartCount, 
-    wishlistCount, 
-    setIsSearchOpen, 
-    setIsCartDrawerOpen, 
-    currentUser, 
+  const {
+    activeView,
+    navigateTo,
+    cartCount,
+    wishlistCount,
+    setIsSearchOpen,
+    setIsCartDrawerOpen,
+    currentUser,
     setIsAuthModalOpen,
     setAuthModalMode,
     logout,
@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
   return (
     <>
       {/* Top Announcement Bar */}
-      <div 
+      <div
         id="announcement-bar"
         className="bg-[#181716] text-[#E8E2DA] text-[11px] font-medium tracking-[0.2em] py-2 px-4 text-center border-b border-[#2C2925] flex items-center justify-center gap-2"
       >
@@ -77,17 +77,16 @@ export const Header: React.FC = () => {
         <span>LAGOS ATELIER &amp; NATIONWIDE CONCIERGE</span>
       </div>
 
-      {/* Main Fixed Header */}
+      {/* Main Sticky Header */}
       <header
         id="main-header"
-        className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-300 ${
-          isScrolled
+        className={`sticky top-0 z-40 w-full transition-all duration-300 ${isScrolled
             ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm border-b border-[#E8E2DA] py-3.5'
             : 'bg-[#FAF8F5] border-b border-[#ECE6DC] py-5'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          
+
           {/* Mobile Menu Trigger & Search */}
           <div className="flex items-center gap-3 lg:hidden">
             <button
@@ -127,8 +126,8 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Desktop Center Navigation */}
-          <nav 
-            id="desktop-nav" 
+          <nav
+            id="desktop-nav"
             className="hidden lg:flex items-center space-x-7"
             aria-label="Main Navigation"
           >
@@ -137,32 +136,30 @@ export const Header: React.FC = () => {
                 item.view === 'home'
                   ? activeView === 'home'
                   : activeView === 'shop' &&
-                    (item.category === 'All'
-                      ? activeCategoryFilter === 'All' || !activeCategoryFilter
-                      : activeCategoryFilter === item.category);
+                  (item.category === 'All'
+                    ? activeCategoryFilter === 'All' || !activeCategoryFilter
+                    : activeCategoryFilter === item.category);
 
               return (
                 <button
                   key={item.label}
                   id={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                   onClick={() => handleNavClick(item.view, item.category)}
-                  className={`text-xs uppercase tracking-[0.18em] font-medium transition-all duration-200 py-1 relative hover:text-[#C29E74] ${
-                    item.isHighlight
+                  className={`text-xs uppercase tracking-[0.18em] font-medium transition-all duration-200 py-1 relative hover:text-[#C29E74] ${item.isHighlight
                       ? isActive
                         ? 'text-[#B8533E] font-bold'
                         : 'text-[#B8533E] font-semibold'
                       : isActive
-                      ? 'text-[#181716] font-bold'
-                      : 'text-[#4A453F]'
-                  }`}
+                        ? 'text-[#181716] font-bold'
+                        : 'text-[#4A453F]'
+                    }`}
                 >
                   {item.label}
                   {/* Active Indicator line */}
                   {isActive && (
-                    <span 
-                      className={`absolute bottom-0 left-0 right-0 h-[1.5px] ${
-                        item.isHighlight ? 'bg-[#B8533E]' : 'bg-[#181716]'
-                      }`} 
+                    <span
+                      className={`absolute bottom-0 left-0 right-0 h-[1.5px] ${item.isHighlight ? 'bg-[#B8533E]' : 'bg-[#181716]'
+                        }`}
                     />
                   )}
                 </button>
@@ -207,7 +204,7 @@ export const Header: React.FC = () => {
 
               {/* Logged-In User Dropdown */}
               {currentUser && accountDropdownOpen && (
-                <div 
+                <div
                   id="account-dropdown-menu"
                   className="absolute right-0 mt-3 w-56 bg-[#FAF8F5] border border-[#E8E2DA] shadow-xl rounded-md py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
                 >
@@ -268,7 +265,7 @@ export const Header: React.FC = () => {
             >
               <Heart className="w-5 h-5" />
               {wishlistCount > 0 && (
-                <span 
+                <span
                   id="wishlist-count-badge"
                   className="absolute -top-1 -right-1 bg-[#C29E74] text-[#FAF8F5] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs"
                 >
@@ -287,7 +284,7 @@ export const Header: React.FC = () => {
               <div className="relative">
                 <ShoppingBag className="w-5 h-5 group-hover:scale-105 transition-transform" />
                 {cartCount > 0 && (
-                  <span 
+                  <span
                     id="cart-count-badge"
                     className="absolute -top-1.5 -right-2 bg-[#181716] text-[#FAF8F5] text-[10px] font-bold min-w-4 h-4 px-1 rounded-full flex items-center justify-center shadow-xs"
                   >
@@ -351,23 +348,22 @@ export const Header: React.FC = () => {
                       link.view === 'home'
                         ? activeView === 'home'
                         : activeView === 'shop' &&
-                          (link.category === 'All'
-                            ? activeCategoryFilter === 'All' || !activeCategoryFilter
-                            : activeCategoryFilter === link.category);
+                        (link.category === 'All'
+                          ? activeCategoryFilter === 'All' || !activeCategoryFilter
+                          : activeCategoryFilter === link.category);
 
                     return (
                       <button
                         key={link.label}
                         onClick={() => handleNavClick(link.view, link.category)}
-                        className={`w-full flex items-center justify-between py-3 px-3 rounded-md text-xs tracking-widest uppercase transition-colors ${
-                          link.isHighlight
+                        className={`w-full flex items-center justify-between py-3 px-3 rounded-md text-xs tracking-widest uppercase transition-colors ${link.isHighlight
                             ? isActive
                               ? 'text-[#B8533E] font-bold bg-[#FAF1EF] border-l-2 border-[#B8533E]'
                               : 'text-[#B8533E] font-semibold bg-[#FAF1EF]'
                             : isActive
-                            ? 'text-[#181716] font-bold bg-[#ECE6DC] border-l-2 border-[#181716]'
-                            : 'text-[#181716] hover:bg-[#F2ECE3] font-medium'
-                        }`}
+                              ? 'text-[#181716] font-bold bg-[#ECE6DC] border-l-2 border-[#181716]'
+                              : 'text-[#181716] hover:bg-[#F2ECE3] font-medium'
+                          }`}
                       >
                         <span>{link.label}</span>
                         <ChevronRight className="w-4 h-4 text-[#A8A196]" />

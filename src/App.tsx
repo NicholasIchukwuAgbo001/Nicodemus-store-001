@@ -43,7 +43,7 @@ const MainAppContent: React.FC = () => {
       <Header />
 
       {/* Main Dynamic View Controller */}
-      <main className="flex-1 pt-[120px] sm:pt-[110px]">
+      <main className="flex-1">
         {activeView === 'home' && (
           <div id="home-view">
             <HeroSection />
