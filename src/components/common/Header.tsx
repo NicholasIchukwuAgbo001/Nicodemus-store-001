@@ -70,7 +70,7 @@ export const Header: React.FC = () => {
       {/* Top Announcement Bar */}
       <div
         id="announcement-bar"
-        className="fixed top-0 left-0 right-0 z-50 bg-[#181716] text-[#E8E2DA] text-[11px] font-medium tracking-[0.2em] py-2 px-4 text-center border-b border-[#2C2925] flex items-center justify-center gap-2"
+        className="fixed top-0 left-0 right-0 z-50 bg-[#181716] text-[#E8E2DA] text-[11px] font-medium tracking-[0.2em] py-2 px-4 text-center flex items-center justify-center gap-2"
       >
         <span className="hidden sm:inline">COMPLIMENTARY DELIVERY ACROSS NIGERIA ON ORDERS OVER ₦250,000</span>
         <span className="hidden sm:inline text-[#C29E74]">•</span>
@@ -80,9 +80,9 @@ export const Header: React.FC = () => {
       {/* Main Fixed Header */}
       <header
         id="main-header"
-        className={`fixed top-[37px] left-0 right-0 z-40 w-full transition-all duration-300 ${isScrolled
-          ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm border-b border-[#E8E2DA] py-3.5'
-          : 'bg-[#FAF8F5] border-b border-[#ECE6DC] py-5'
+        className={`fixed top-[33px] left-0 right-0 z-40 w-full transition-all duration-300 ${isScrolled
+          ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm border-b border-[#E8E2DA] py-3 sm:py-3.5'
+          : 'bg-[#FAF8F5] border-b border-[#ECE6DC] py-4 sm:py-5'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
